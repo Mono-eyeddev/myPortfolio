@@ -1441,7 +1441,61 @@ window.onclick = function(event) {
         </div>
       </div>
 
-      <form action="/submit" method="post" role="form" class="php-email-form mt-4">
+    <form action="https://formsubmit.co/Sajaadiqbalkarim7@gmail.com" 
+      method="POST" 
+      class="php-email-form mt-4" 
+      id="contact-form">
+      <style>
+        .loading, .sent-message, .error-message {
+  display: none;
+}
+      </style>
+      <!--Ajax code-->
+  <script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = this;
+  const loading = form.querySelector(".loading");
+  const errorMsg = form.querySelector(".error-message");
+  const sentMsg = form.querySelector(".sent-message");
+
+  loading.style.display = "block";
+  errorMsg.style.display = "none";
+  sentMsg.style.display = "none";
+
+  fetch("https://formsubmit.co/ajax/Sajaadiqbalkarim7@gmail.com", {
+    method: "POST",
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      name: form.name.value,
+      email: form.email.value,
+      subject: form.subject.value,
+      message: form.message.value
+    })
+  })
+  .then(response => {
+    loading.style.display = "none";
+    if (response.ok) {
+      sentMsg.style.display = "block";
+      form.reset();
+    } else {
+      return response.json().then(data => {
+        throw new Error(data.message || "Something went wrong");
+      });
+    }
+  })
+  .catch(error => {
+    loading.style.display = "none";
+    errorMsg.textContent = error.message;
+    errorMsg.style.display = "block";
+  });
+});
+</script>
+
         <div class="row">
           <div class="col-md-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
