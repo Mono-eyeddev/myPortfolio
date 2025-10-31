@@ -1225,83 +1225,77 @@ window.onclick = function(event) {
         </div>
       </div>
 
-    <form action="https://formsubmit.co/Sajaadiqbalkarim8@gmail.com" 
-      method="POST" 
-      class="php-email-form mt-4" 
-      id="contact-form">
-      <style>
-        .loading, .sent-message, .error-message {
-  display: none;
-}
-      </style>
-      <!--Ajax code-->
-  <script>
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-  e.preventDefault();
+ <form 
+  id="contact-form"
+  class="php-email-form mt-4">
 
-  const form = this;
+  <div class="row">
+    <h3 style="color: white;"><strong>Get in touch</strong></h3>
+    <div class="col-md-6 form-group">
+      <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+    </div>
+    <div class="col-md-6 form-group mt-3 mt-md-0">
+      <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+    </div>
+  </div>
+  <div class="form-group mt-3">
+    <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+  </div>
+  <div class="form-group mt-3">
+    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+  </div>
+  <div class="my-3">
+    <div class="loading" style="display:none;">Loading...</div>
+    <div class="error-message" style="display:none;color:red;"></div>
+    <div class="sent-message" style="display:none;color:#00ff00;">Your message has been sent. Thank you!</div>
+  </div>
+  <div class="text-center"><button type="submit">Send</button></div>
+</form>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const form = document.getElementById("contact-form");
   const loading = form.querySelector(".loading");
   const errorMsg = form.querySelector(".error-message");
   const sentMsg = form.querySelector(".sent-message");
 
-  loading.style.display = "block";
-  errorMsg.style.display = "none";
-  sentMsg.style.display = "none";
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
 
-  fetch("https://formsubmit.co/ajax/Sajaadiqbalkarim8@gmail.com", {
-    method: "POST",
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: JSON.stringify({
-      name: form.name.value,
-      email: form.email.value,
-      subject: form.subject.value,
-      message: form.message.value
+    loading.style.display = "block";
+    errorMsg.style.display = "none";
+    sentMsg.style.display = "none";
+
+    fetch("https://formsubmit.co/ajax/Sajaadiqbalkarim8@gmail.com", {
+      method: "POST",
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value
+      })
     })
-  })
-  .then(response => {
-    loading.style.display = "none";
-    if (response.ok) {
-      sentMsg.style.display = "block";
-      form.reset();
-    } else {
-      return response.json().then(data => {
-        throw new Error(data.message || "Something went wrong");
-      });
-    }
-  })
-  .catch(error => {
-    loading.style.display = "none";
-    errorMsg.textContent = error.message;
-    errorMsg.style.display = "block";
+    .then(response => {
+      loading.style.display = "none";
+      if (response.ok) {
+        sentMsg.style.display = "block";
+        form.reset();
+      } else {
+        return response.json().then(data => {
+          throw new Error(data.message || "Something went wrong");
+        });
+      }
+    })
+    .catch(error => {
+      loading.style.display = "none";
+      errorMsg.textContent = error.message;
+      errorMsg.style.display = "block";
+    });
   });
 });
 </script>
 
-        <div class="row">
-          <h3 style="color: white;"><strong>Get in touch</strong></h3>
-          <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-          </div>
-          <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-          </div>
-        </div>
-        <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-        </div>
-        <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-        </div>
-        <div class="my-3">
-          <div class="loading">Loading</div>
-          <div class="error-message"></div>
-          <div class="sent-message">Your message has been sent. Thank you!</div>
-        </div>
-        <div class="text-center"><button type="submit">Send</button></div>
-      </form>
 
     </div>
   </section><!-- End Contact Section -->
