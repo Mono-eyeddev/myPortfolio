@@ -233,7 +233,7 @@
         <span class="cd-words-wrapper">
           <b class="is-visible">Designer</b>
           <b>Developer</b>
-          <b>Techpreneur</b>
+          <b>Dealer</b>
         </span>
       </span><br> from <strong style="color: red;">Ke</strong>nya</h2>
 
@@ -312,12 +312,12 @@
           </div>
           <p>
          <i><p>
-  I'm a passionate 💼 <b>Tech Entrepreneur</b> specializing in the sales, setup, and maintenance of <b>Laptops, Desktops, Printers, CCTV Systems, and Accessories</b>.  
+  I'm a passionate <b>Tech Entrepreneur</b> specializing in the sales, setup and maintenance of <b>Laptops, Desktops, Printers, CCTV Systems and Computer Accessories</b>.  
   Alongside that, I'm also a developer and designer driven by the mission to create intuitive and impactful digital experiences.  
   With a strong foundation in design principles and a keen eye for detail, I translate complex ideas into user-friendly solutions that captivate and engage.<br>
   Throughout my journey in IT, I've embraced the ethos of 'Jack of all trades, master of none.'  
-  However, I approach it differently—I aim to master the most essential skills needed for excellence.  
-  This mindset pushes me to keep improving, stay sincere about my strengths and weaknesses, and deliver top-tier results in everything I do.
+  However, I approach it differently, I aim to master the most essential skills needed for excellence.  
+  This mindset pushes me to keep improving, stay sincere about my strengths and weaknesses and deliver top-tier results in everything I do.
 </p></i>
 
         </div>
@@ -834,24 +834,35 @@ This role enhanced my attention to detail, analytical skills, and ability to del
           /* Modal styles */
 .modal {
   display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 9999; /* Sit on top */
+  position: fixed;
+  z-index: 9999;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
 }
 
-/* Modal content */
+/* Your modal box */
 .modal-content {
   font-size: 30px;
   background-color: #0c0c0cd6;
-  margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 2px solid #bf0101;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
+  max-width: 450px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(191, 1, 1, 0.3);
+}
+
+/* Mobile-friendly tweaks */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 90%;
+    font-size: 22px;
+  }
 }
 
 /* Close button */
@@ -922,7 +933,7 @@ var span = document.querySelector(".closed");
 // When any of the buttons are clicked, open the modal 
 btns.forEach(function(btn) {
   btn.onclick = function() {
-    modal.style.display = "block";
+    modal.style.display = "flex";
     document.body.style.overflow = "hidden"; // Disable scrolling
   }
 });

@@ -655,7 +655,7 @@ h6 {
   align-items: center;
   z-index: 997;
   overflow-y: auto;
-  margin-left: 80px;
+  margin-left: 60px;
 }
 
 #header * {
@@ -1316,6 +1316,7 @@ section .container {
  .cd-words-wrapper::after {
   content: "";
   width: 0;
+ 
  
 }
 .cd-words-wrapper b{
