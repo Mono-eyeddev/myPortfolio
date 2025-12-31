@@ -655,7 +655,7 @@ h6 {
   align-items: center;
   z-index: 997;
   overflow-y: auto;
-  margin-left: 80px;
+  margin-left: 60px;
 }
 
 #header * {
@@ -1317,6 +1317,7 @@ section .container {
   content: "";
   width: 0;
  
+ 
 }
 .cd-words-wrapper b{
   font-size: 50px;
@@ -1742,16 +1743,45 @@ section .container {
 }
 
 .contact .php-email-form button[type=submit] {
-  background: #18d26e;
-  border: 0;
-  padding: 10px 30px;
-  color: #fff;
-  transition: 0.4s;
-  border-radius: 4px;
+ --width: 150px;
+            --timing: 2s;
+            border: 0;
+            width: var(--width);
+            padding-block: 1em;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1em;
+            background: rgb(201, 1, 1);
+            transition: all 0.2s;
+            border-radius: 3px;
+            cursor: pointer;
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: #ff0000;
+   background-image: linear-gradient(
+              to right,
+              rgb(225, 11, 11),
+              rgb(0, 0, 0) ,
+              rgb(225, 11, 11) ,
+              rgb(0, 0, 0) ,
+              rgb(225, 11, 11) ,
+              rgb(0, 0, 0) ,
+              rgb(225, 11, 11) ,
+              rgb(0, 0, 0) ,
+              rgb(225, 11, 11) ,
+              rgb(0, 0, 0) ,
+              rgb(225, 11, 11) ,
+              rgb(0, 0, 0) ,
+              rgb(225, 11, 11)
+            );
+            animation: var(--timing) linear dance6123 infinite;
+            transform: scale(1.1) translateY(-1px);
+          }
+          
+          @keyframes dance6123 {
+            to {
+              background-position: var(--width);
+            }
 }
 
 @keyframes animate-loading {
