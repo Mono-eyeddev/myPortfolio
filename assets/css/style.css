@@ -5,7 +5,7 @@
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
-
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -697,29 +697,76 @@ h6 {
   margin: 0;
 }
 
+/* Container gap */
 #header .social-links {
   margin-top: 40px;
   display: flex;
-  gap:40px;
- 
+  flex-wrap: wrap;
+  gap: 20px;
 }
-
+/* Circle icons */
 #header .social-links a {
-  font-size: 16px;
-  display: flex;
+  position: relative;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  line-height: 1;
-  margin-right: 8px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+  font-size: 24px;
+  text-decoration: none;
+  transition: transform 0.3s, background 0.3s;
+  font-family: 'VT323', monospace;
+  overflow: visible;
 }
 
-#header .social-links a:hover {
-  background: #ff0000;
+/* Tooltip */
+#header .social-links a::after {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #111; /* dark street base */
+  color: #fff;
+  font-family: 'VT323', monospace;
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow: 1px 1px 2px #000;
+  transition: opacity 0.3s, transform 0.3s, background 0.3s;
+  z-index: 9999;
+}
+
+#header .social-links a:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-5px);
+}
+
+
+#header .social-links a.whatsapp:hover {
+  background: #25D366; 
+  transform: translateY(-5px) rotate(-5deg);
+}
+
+#header .social-links a.email:hover {
+  background: #FF4444; 
+  transform: translateY(-5px) rotate(-5deg);
+}
+
+#header .social-links a.github:hover {
+  background: darkgreen;
+  transform: translateY(-5px) rotate(-5deg);
+}
+
+#header .social-links a.phone:hover {
+  background: blue;
+  transform: translateY(-5px) rotate(-5deg);
 }
 
 @media (max-width: 992px) {
@@ -791,7 +838,112 @@ h6 {
     font-size: 26px;
   }
 }
+.glitch-btn {
+  display: block; /* pushes it to the next line */
+  font-size: 20px;
+   --main-color: white;
+  --main-bg-color: #b40606;
+  --pattern-color: rgba(213, 46, 46, 0.073);
 
+  /* change this rotation value */
+  filter: hue-rotate(0deg);
+
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  background: radial-gradient(
+      circle,
+      var(--main-bg-color) 0%,
+      rgba(0, 0, 0, 0) 95%
+    ),
+    linear-gradient(var(--pattern-color) 1px, transparent 1px),
+    linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
+  background-size:
+    cover,
+    15px 15px,
+    15px 15px;
+  background-position:
+    center center,
+    center center,
+    center center;
+  border-image: radial-gradient(
+      circle,
+      var(--main-color) 0%,
+      rgba(0, 0, 0, 0) 100%
+    )
+    1;
+  border-width: 1px 0 1px 0;
+  color: var(--main-color);
+  padding: 1rem 3rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: background-size 0.2s ease-in-out;
+  font-family: 'VT323', monospace;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  user-select: none;
+  padding: 10px 50px;
+  
+}
+.glitch-btn::after {
+  content: 'Error Found'; /* same text as button */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-color);
+  font-family: 'VT323', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.5rem;
+  background: radial-gradient(
+      circle,
+      var(--main-bg-color) 0%,
+      rgba(0, 0, 0, 0) 95%
+    ),
+    linear-gradient(var(--pattern-color) 1px, transparent 1px),
+    linear-gradient(to right, var(--pattern-color) 1px, transparent 1px);
+  background-size:
+    cover,
+    15px 15px,
+    15px 15px;
+  background-position:
+    center center,
+    center center,
+    center center;
+  border-radius: 5px;
+  pointer-events: none; /* don’t block clicks */
+  clip-path: inset(50% 50% 50% 50%);
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+/* Hover glitch animation */
+.glitch-btn:hover::after {
+  animation: glitch_4011 1s steps(2, end);
+  text-shadow: -3px -3px 0px #1df2f0, 3px 3px 0px #E94BE8;
+  background-color: rgba(180, 6, 6, 0.4); /* glitch color pop */
+  clip-path: inset(0); /* full coverage on hover */
+}
+
+/* Glitch keyframes */
+@keyframes glitch_4011 {
+  0% { clip-path: inset(50% 50% 50% 50%); transform: translate(0,-5px);}
+  10% { clip-path: inset(30% 0 40% 0); transform: translate(-5px,5px);}
+  20% { clip-path: inset(40% 0 15% 0); transform: translate(5px,0);}
+  30% { clip-path: inset(45% 0 40% 0); transform: translate(-5px,5px);}
+  40% { clip-path: inset(45% 0 5% 0); transform: translate(5px,-5px);}
+  50% { clip-path: inset(15% 0 60% 0); transform: translate(-5px,5px);}
+  60% { clip-path: inset(50% 50% 50% 50%); transform: translate(5px,-5px);}
+  70% { clip-path: inset(40% 0 15% 0); transform: translate(-5px,5px);}
+  80% { clip-path: inset(30% 0 40% 0); transform: translate(5px,-5px);}
+  90% { clip-path: inset(45% 0 40% 0); transform: translate(-5px,5px);}
+  100% { clip-path: inset(50% 50% 50% 50%); transform: translate(0);}
+}
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
@@ -1316,11 +1468,10 @@ section .container {
  .cd-words-wrapper::after {
   content: "";
   width: 0;
- 
- 
 }
 .cd-words-wrapper b{
-  font-size: 50px;
+  font-size: 40px;
+  font-family: 'VT323', monospace;
 }
 .services .icon-box .icon i {
   color: #fff;
@@ -1824,4 +1975,12 @@ section .container {
 
 .credits a:hover {
   color: #fff;
+}
+@media (max-width: 500px) {
+       .cd-words-wrapper b{
+        font-size: 33px;
+       }
+       .glitch-btn{
+        margin-top: 20px;
+       }
 }
