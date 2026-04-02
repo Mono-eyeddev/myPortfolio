@@ -839,11 +839,11 @@ h6 {
   }
 }
 .glitch-btn {
-  display: block; /* pushes it to the next line */
+  display: block; 
   font-size: 20px;
-   --main-color: white;
-  --main-bg-color: #b40606;
-  --pattern-color: rgba(213, 46, 46, 0.073);
+   --main-color: rgb(255, 255, 255);
+  --main-bg-color: #f00000ab;
+  --pattern-color: rgba(255, 0, 0, 0.247);
 
   /* change this rotation value */
   filter: hue-rotate(0deg);
