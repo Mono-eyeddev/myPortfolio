@@ -1110,7 +1110,9 @@ section.section-show {
   opacity: 1;
   padding-bottom: 45px;
 }
-
+.about-me .content{
+    max-width:100%;
+}
 section .container {
   background: rgba(0, 0, 0, 0.9);
   padding: 30px;
@@ -1167,7 +1169,7 @@ section .container {
 }
 
 .about-me .content ul {
-  list-style: none;
+  list-style: disc;
   padding: 0;
 }
 
